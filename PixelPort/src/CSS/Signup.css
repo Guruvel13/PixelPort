@@ -1,0 +1,136 @@
+.signup-container {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 750px; 
+  width: 80%; 
+  padding: 28px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 32px auto;
+  gap: 24px;
+}
+
+.signup-left {
+  flex: 1;
+  padding-right: 16px; 
+}
+
+.signup-right {
+  flex: 1;
+}
+
+.signup-heading {
+  margin-bottom: 16px;
+}
+
+.signup-heading h1 {
+  font-size: 28px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.signup-heading p {
+  color: #333;
+  font-size: 14px; 
+}
+
+.signup-google-btn {
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.signup-google-btn:hover {
+  background-color: #357ae8;
+}
+
+.signup-google-btn img {
+  margin-right: 8px;
+}
+
+.signup-or-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}
+
+.signup-or-divider::before,
+.signup-or-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+  margin: 0 16px;
+}
+
+.signup-input-group {
+  margin-bottom: 18px; 
+}
+
+.signup-input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+}
+
+.signup-input-group input {
+  width: 100%;
+  padding: 12px; 
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px; 
+  transition: border 0.3s ease-in-out;
+}
+
+.signup-input-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.signup-name-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px; 
+}
+
+.signup-name-inputs{
+  flex: 1;
+}
+
+.signup-create-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 14px; 
+  border-radius: 50px;
+  margin-top: 16px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 15px; 
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+}
+
+.signup-create-btn:hover {
+  background-color: #0056b3;
+}

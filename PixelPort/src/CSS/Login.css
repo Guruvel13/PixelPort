@@ -1,0 +1,174 @@
+.login-container {
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    width: 90%;
+    padding: 32px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 48px auto;
+    box-sizing: border-box;
+  }
+  
+  .login-content {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login-content h1 {
+    font-size: 28px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .login-content p {
+    color: #333;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .social-login {
+    margin-bottom: 16px;
+  }
+  
+  .login-google-btn {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .login-google-btn:hover {
+    background-color: #357ae8;
+  }
+  
+  .login-or-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .login-or-divider::before,
+  .login-or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 16px;
+  }
+  
+  .login-input-container {
+    text-align: left;
+    margin-bottom: 16px;
+  }
+  
+  .login-input-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .login-input-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  .login-input-container input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .login-error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  .login-forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: #007bff;
+    margin-bottom: 16px;
+    text-decoration: none;
+  }
+  
+  .login-forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  .login-email-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .login-email-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .login-content p a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .login-content p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .login-container {
+      padding: 24px;
+    }
+  
+    .login-content h1 {
+      font-size: 26px;
+    }
+  
+    .login-google-btn {
+      font-size: 15px;
+      padding: 12px;
+    }
+  
+    .login-email-btn {
+      font-size: 15px;
+      padding: 12px;
+    }
+  
+    .login-input-container input {
+      font-size: 15px;
+    }
+  }
+  
