@@ -1,186 +1,286 @@
-:root {
-    --primary-color: #007bff; /* Primary blue */
-    --secondary-color: #e8f0fe; /* Light blue background */
-    --text-color: #333; /* Text color */
-    --font-family: sans-serif;
-  }
-  
-  body {
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa; /* Light gray background */
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  
-  .container {
-    width: 90%; /* Adjust width as needed */
-    max-width: 1200px; /* Set a maximum width */
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1rem 2rem;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 40px;
-    height: 40px;
-    margin-right: 0.5rem;
-  }
-  
-  .nav ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  .nav ul li {
-    margin-right: 1.5rem;
-  }
-  
-  .actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .actions button {
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.25rem;
-    border: none;
-    font-weight: bold;
-    margin-left: 1rem;
-  }
-  
-  .primary {
-    background-color: var(--primary-color);
-    color: #fff;
-  }
-  
-  .header-right {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-actions {
-    margin-left: auto;
-  }
-  
-  .header-action {
-    padding: 0.5rem 1rem;
-    margin-left: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .publish-btn {
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 3px;
-    margin-left: 1rem;
-  }
-  
-  .cover-section {
-    position: relative;
-    height: 300px; /* Adjust height as needed */
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .cover-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .cover-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-  }
-  
-  .cover-overlay h2 {
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
-  }
-  
-  .cover-overlay input {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
-    margin-bottom: 1rem;
-  }
-  
-  .edit-cover-btn {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 3px;
-  }
-  
-  .content {
-    margin-top: 2rem;
-  }
-  
-  .filters {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .filters button {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    margin-right: 1rem;
-  }
-  
-  .filters button.active {
-    background-color: var(--primary-color);
-    color: #fff;
-  }
-  
-  .search-bar {
-    position: relative;
-  }
-  
-  .search-bar input {
-    padding: 0.8rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    width: 200px;
-  }
-  
-  .search-bar svg {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    color: #888;
-  }
-  
-  /* Work Samples Section (Add your styles for this section) */
-  
-  /* Responsive Styles */
-  @media screen and (max-width: 768px) {
-    /* Adjust layout for smaller screens */
-  }
+/* Dash-container */
+.Dash-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.button-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.button-actions button {
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.Download {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50px;
+}
+
+.logout {
+  background-color: #ff0000;
+  color: white;
+  border-radius: 50px;
+  margin-right: 50px;
+}
+
+.Account {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50px;
+}
+
+.button-actions button:hover {
+  opacity: 0.8;
+}
+
+/* Cover Section */
+.cover-section {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cover-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  z-index: 10;
+}
+
+.profile-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.profile-image {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #fff;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info input {
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.edit-cover-btn,
+.edit-profile-btn {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-cover-btn:hover,
+.edit-profile-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Skills Section */
+.skills-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.skills-section h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.skills-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.skills-column {
+  width: 100%;
+}
+
+.skills-column input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.skills-column input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-skill-btn {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.add-skill-btn:hover {
+  background-color: #218838;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.project-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.project-item input,
+.project-item textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.project-item input:focus,
+.project-item textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.project-item button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-item button:hover {
+  background-color: #0056b3;
+}
+
+.add-project-btn {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.add-project-btn:hover {
+  background-color: #218838;
+}

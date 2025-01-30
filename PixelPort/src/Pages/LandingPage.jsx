@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import "../CSS/LandingPage.css"
+import PixelPortLogo from '../Img/PixelPort.jpg';
 
 function LandingPage() {
     return (
         <div className="container">
             <header>
                 <div className="logo">
-                    <img src="logo.svg" alt="PixelPort Logo" />
+                    <img src={PixelPortLogo} alt="PixelPort Logo" />
                     <h3>PixelPort</h3>
                 </div>
                 <div className="actions">
@@ -33,24 +34,24 @@ function LandingPage() {
                         <p>Get a self-updating portfolio page.</p>
                     </div>
                     <div className="feature">
-                        <h3>Archive</h3>
-                        <p>Get automated backups of all content you create.</p>
+                        <h3>Skills</h3>
+                        <p>Get a self-showcase skills</p>
                     </div>
                     <div className="feature">
-                        <h3>Analytics</h3>
-                        <p>Learn how your content performs on social media.</p>
+                        <h3>Project</h3>
+                        <p>Get a self-share of projects</p>
                     </div>
                     <div className="feature">
                         <h3>Tracking</h3>
-                        <p>Find out where and when your content is published.</p>
+                        <p>Find out where and when your content is created.</p>
                     </div>
                     <div className="feature">
-                        <h3>Collections</h3>
-                        <p>Curate your content privately or share it.</p>
+                        <h3>Account</h3>
+                        <p>Secure your content privately .</p>
                     </div>
                     <div className="feature">
-                        <h3>Newsletter</h3>
-                        <p>Let your subscribers know about your new content.</p>
+                        <h3>UI</h3>
+                        <p>Get a user-friendly UI experience.</p>
                     </div>
                 </section>
             </main>

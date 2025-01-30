@@ -38,7 +38,7 @@ function LoginPage() {
                         <input
                             type="email"
                             id="email"
-                            placeholder="e.g., john.doe@gmail.com"
+                            placeholder="e.g., guruvel@gmail.com"
                             value={email}
                             onChange={handleEmailChange} // Function now defined
                             required
