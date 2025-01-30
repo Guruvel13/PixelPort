@@ -7,7 +7,7 @@ import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 import Dashboard from './Pages/Dashboard'
 // import Logout from'./Pages/Lougout'
-import Account from './Pages/Account'
+import Setting from './Pages/Setting'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/landingpage" element={<LandingPage />} /> 
         <Route path="/dashboard" element={<Dashboard />} /> 
         {/* <Route path="/logout" element={<Logout />} />  */}
-        <Route path="/account" element={<Account />} /> 
+        <Route path="/setting" element={<Setting />} /> 
     </Routes>
     </BrowserRouter>
   )

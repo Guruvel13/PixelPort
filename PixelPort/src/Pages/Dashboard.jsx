@@ -71,15 +71,12 @@ function Dashboard() {
     <div className="Dash-container">
       <header>
         <div className="logo">
-          <img src={PixelPortLogo} alt="PixelPort Logo" />  {/* Fixed the image reference */}
+          <img src={PixelPortLogo} alt="PixelPort Logo" />  
           <h3>PixelPort</h3>
         </div>
         <div className="button-actions">
-          <Link to="/account">
-            <button className="Account">Account</button>
-          </Link>
-          <Link to="/logout">
-            <button className="logout">Logout</button>
+          <Link to="/setting">
+            <button className="Setting">Setting</button>
           </Link>
         </div>
       </header>

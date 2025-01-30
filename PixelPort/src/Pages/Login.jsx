@@ -52,11 +52,6 @@ function LoginPage() {
           </div>
 
           {error && <span className="login-error">{error}</span>}
-
-          <a href="/forgot-password" className="login-forgot-password">
-            Forgot password?
-          </a>
-
           <button type="submit" className="login-email-btn">
             Continue with Email
           </button>
