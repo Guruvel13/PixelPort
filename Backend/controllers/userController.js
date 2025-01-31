@@ -1,6 +1,5 @@
 const User = require('../models/Users');
 
-// Get User Profile
 exports.getUserProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.userId);
@@ -10,7 +9,6 @@ exports.getUserProfile = async (req, res) => {
   }
 };
 
-// Update User Profile
 exports.updateUserProfile = async (req, res) => {
   const { firstName, lastName, email } = req.body;
   try {

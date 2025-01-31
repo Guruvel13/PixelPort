@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/user', async (req, res) => {
   try {
-    const user = await User.findById(req.userId); // Assuming you're using JWT and have userId stored in the request
+    const user = await User.findById(req.userId); 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
@@ -13,7 +13,7 @@ router.get('/user', async (req, res) => {
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,
-      picture: user.picture, // Optional
+      picture: user.picture, 
     });
   } catch (error) {
     console.error(error);

@@ -1,7 +1,6 @@
 const User = require('../models/Users');
 const jwt = require('jsonwebtoken');
 
-// Signup Route
 exports.signup = async (req, res) => {
   const { email, password, firstName, lastName } = req.body;
   try {
@@ -15,7 +14,6 @@ exports.signup = async (req, res) => {
   }
 };
 
-// Login Route
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
