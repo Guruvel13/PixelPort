@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { loginUser } from '../api'; 
 import '../CSS/Login.css';
 
 function LoginPage() {
@@ -10,11 +10,11 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-      localStorage.setItem('token', response.data.token); // Store the token in localStorage
+      const data = await loginUser(email, password);
+      localStorage.setItem('token', data.token);
       window.location.href = '/dashboard';
     } catch (error) {
-      setError('Invalid email or password');
+      setError(error); // Display API error message
     }
   };
 
@@ -52,6 +52,9 @@ function LoginPage() {
           </div>
 
           {error && <span className="login-error">{error}</span>}
+          <a href="/forgot-password" className="login-forgot-password">
+            Forgot password?
+          </a>
           <button type="submit" className="login-email-btn">
             Continue with Email
           </button>

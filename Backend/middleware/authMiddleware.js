@@ -1,19 +1,32 @@
+const express = require('express');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
-const authMiddleware = (req, res, next) => {
-  const token = req.header('Authorization')?.replace('Bearer ', '');
+const router = express.Router();
 
-  if (!token) {
-    return res.status(401).json({ message: 'Access denied. No token provided.' });
-  }
-
+router.post('/login', async (req, res) => {
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;  // Attach user to the request object
-    next();  // Proceed to the next middleware or route handler
-  } catch (err) {
-    res.status(400).json({ message: 'Invalid token' });
-  }
-};
+    const { email, password } = req.body;
 
-module.exports = authMiddleware;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+
+    const isMatch = await user.comparePassword(password);
+
+    if (!isMatch) {
+      return res.status(400).json({ error: 'Invalid email or password' });
+    }
+    const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1h' });
+
+    res.json({ token });
+  } catch (error) {
+    console.error('API Error (/auth/login):', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+module.exports = router;
