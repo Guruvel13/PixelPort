@@ -11,7 +11,7 @@ function SignupPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+      const response = await axios.post('https://pixelport-2.onrender.com/api/auth/signup', {
         email,
         password,
         firstName,
