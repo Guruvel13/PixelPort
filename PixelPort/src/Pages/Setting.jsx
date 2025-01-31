@@ -23,7 +23,7 @@ function SettingsPage() {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/user', {
+        const response = await axios.get('https://pixelport-2.onrender.com/api/user', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

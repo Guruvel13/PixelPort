@@ -12,7 +12,7 @@ function LoginPage() {
     event.preventDefault();
     console.log({ email, password }); 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const response = await axios.post('https://pixelport-2.onrender.com/api/auth/login', { email, password });
       localStorage.setItem('token', response.data.token); 
       window.location.href = '/dashboard';
     } catch (error) {
