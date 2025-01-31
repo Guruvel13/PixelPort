@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../CSS/Login.css'; 
+import '../CSS/Login.css';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false); 
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true); 
     try {
       const response = await axios.post('https://pixelport-2.onrender.com/api/auth/login', { 
         email, 
         password 
       });
-
       localStorage.setItem('token', response.data.token);
-      window.location.href = '/dashboard'; 
+      window.location.href = '/dashboard';  
     } catch (error) {
-      setError('Invalid email or password');
+      setIsLoading(false); 
+      if (error.response && error.response.status === 400) {
+        setError('Invalid email or password');
+      } else {
+        setError('Something went wrong. Please try again later.');
+      }
     }
   };
 
@@ -55,10 +61,12 @@ function LoginPage() {
             />
           </div>
 
-          {error && <span className="login-error">{error}</span>}
-          <button type="submit" className="login-email-btn">
-            Continue with Email
+          {error && <span className="login-error">{error}</span>} 
+
+          <button type="submit" className="login-email-btn" disabled={isLoading}>
+            {isLoading ? 'Logging in...' : 'Continue with Email'}
           </button>
+
           <p>
             Don't have a PixelPort account yet? <a href="/sign-up">Sign up</a>
           </p>

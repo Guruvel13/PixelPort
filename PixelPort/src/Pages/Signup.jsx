@@ -7,9 +7,13 @@ function SignupPage() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true); 
+
     try {
       const response = await axios.post('https://pixelport-2.onrender.com/api/auth/signup', {
         email,
@@ -18,9 +22,10 @@ function SignupPage() {
         lastName,
       });
       console.log('Signup success:', response.data);
-      // Redirect to login or dashboard
-      window.location.href = "/login";
+      window.location.href = '/login';
     } catch (error) {
+      setIsLoading(false);  
+      setError('Signup failed. Please try again later.');
       console.error('Signup error:', error);
     }
   };
@@ -45,6 +50,7 @@ function SignupPage() {
               required
             />
           </div>
+          
           <div className="signup-input-group">
             <label htmlFor="password">Password</label>
             <input
@@ -56,6 +62,7 @@ function SignupPage() {
               required
             />
           </div>
+
           <div className="signup-name-inputs">
             <div className="signup-input-group">
               <label htmlFor="firstName">First name</label>
@@ -68,6 +75,7 @@ function SignupPage() {
                 required
               />
             </div>
+
             <div className="signup-input-group">
               <label htmlFor="lastName">Last name</label>
               <input
@@ -81,7 +89,12 @@ function SignupPage() {
             </div>
           </div>
 
-          <button type="submit" className="signup-create-btn">Create account</button>
+          {error && <span className="signup-error">{error}</span>}  
+          
+          <button type="submit" className="signup-create-btn" disabled={isLoading}>
+            {isLoading ? 'Creating account...' : 'Create account'}
+          </button>
+          
           <p>
             Already have an account? <a href="/login">Log in</a>
           </p>
