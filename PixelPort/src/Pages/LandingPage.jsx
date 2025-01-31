@@ -21,7 +21,7 @@ function LandingPage() {
                 </div>
             </header>
             <main>
-                <h1>Create Your Own FolioByte & Showcase Your Life's Work</h1>
+                <h1>Create Your Own Portfolio & Showcase Your Life's Work</h1>
                 <p>PixelPort aggregates everything you've ever written or recorded and generates a beautiful portfolio page  so you can showcase, share, and save your life's work.</p>
                 <Link to="/sign-up">
                     <button className="cta">Create Your Portfolio</button>
