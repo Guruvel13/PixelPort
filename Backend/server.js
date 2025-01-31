@@ -10,6 +10,9 @@ const app = express();
 // Load environment variables
 dotenv.config();
 
+// Define the port
+const port = process.env.PORT || 3000;  // Use environment variable or default to 3000
+
 // Connect to MongoDB (removed deprecated options)
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
@@ -76,7 +79,7 @@ authRoutes.post('/login', async (req, res) => {
   }
 });
 
-app.use('/api/auth', authRoutes); 
+app.use('/api/auth', authRoutes);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
