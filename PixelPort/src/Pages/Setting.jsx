@@ -36,7 +36,12 @@ function SettingsPage() {
         setEmail(response.data.email);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching user details:', error.response || error.message);
+        // Detailed error handling
+        if (error.response) {
+          console.error('Error fetching user details:', error.response.data);
+        } else {
+          console.error('Error fetching user details:', error.message);
+        }
         setLoading(false);
       }
     };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signupUser } from '../api'; // Import the signup function
+import axios from 'axios';
 import '../CSS/Signup.css';
 
 function SignupPage() {
@@ -7,15 +7,21 @@ function SignupPage() {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [error, setError] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await signupUser(email, password, firstName, lastName);
-      window.location.href = "/login"; // Redirect to login after successful signup
+      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+        email,
+        password,
+        firstName,
+        lastName,
+      });
+      console.log('Signup success:', response.data);
+      // Redirect to login or dashboard
+      window.location.href = "/login";
     } catch (error) {
-      setError(error); // Display API error message
+      console.error('Signup error:', error);
     }
   };
 
@@ -75,7 +81,6 @@ function SignupPage() {
             </div>
           </div>
 
-          {error && <span className="signup-error">{error}</span>}
           <button type="submit" className="signup-create-btn">Create account</button>
           <p>
             Already have an account? <a href="/login">Log in</a>

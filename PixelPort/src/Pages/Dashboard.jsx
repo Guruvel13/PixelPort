@@ -11,6 +11,7 @@ function Dashboard() {
   const [subheadline, setSubheadline] = useState("");
   const [skills, setSkills] = useState([{ name: "", id: 1 }]); // Initial skill
   const [projects, setProjects] = useState([]);
+  const [aboutMe, setAboutMe] = useState(""); // New state for About Me section
   const [isPreviewMode, setIsPreviewMode] = useState(false); // Track whether preview mode is on
 
   const handleCoverImageChange = (event) => {
@@ -29,6 +30,7 @@ function Dashboard() {
 
   const handleHeadlineChange = (event) => setHeadline(event.target.value);
   const handleSubheadlineChange = (event) => setSubheadline(event.target.value);
+  const handleAboutMeChange = (event) => setAboutMe(event.target.value); // Handle About Me section input
 
   const handleSkillsChange = (index, event) => {
     const newSkills = [...skills];
@@ -81,6 +83,9 @@ function Dashboard() {
           <Link to="/setting">
             <button className="Setting">Setting</button>
           </Link>
+          <Link to="/Logout">
+            <button className="Logout">Logout</button>
+          </Link>
         </div>
       </header>
 
@@ -119,6 +124,20 @@ function Dashboard() {
             )}
             <input type="file" id="coverInput" accept="image/*" onChange={handleCoverImageChange} style={{ display: "none" }} />
           </div>
+        </div>
+
+        {/* About Me Section */}
+        <div className="about-me-section">
+          <h3>About Me</h3>
+          {isPreviewMode ? (
+            <p>{aboutMe}</p> // Show About Me content in preview mode
+          ) : (
+            <textarea
+              placeholder="Write a brief description about yourself"
+              value={aboutMe}
+              onChange={handleAboutMeChange}
+            />
+          )}
         </div>
 
         <div className="skills-section">
