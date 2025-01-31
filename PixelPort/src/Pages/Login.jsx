@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import '../CSS/Login.css';
+import '../CSS/Login.css'; 
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -10,9 +10,13 @@ function LoginPage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('https://pixelport-2.onrender.com/api/auth/login', { email, password });
-      localStorage.setItem('token', response.data.token); // Store the token in localStorage
-      window.location.href = '/dashboard';
+      const response = await axios.post('https://pixelport-2.onrender.com/api/auth/login', { 
+        email, 
+        password 
+      });
+
+      localStorage.setItem('token', response.data.token);
+      window.location.href = '/dashboard'; 
     } catch (error) {
       setError('Invalid email or password');
     }
