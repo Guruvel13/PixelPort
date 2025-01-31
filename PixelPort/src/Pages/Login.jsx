@@ -10,21 +10,17 @@ function LoginPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true); 
+    console.log({ email, password }); 
     try {
-      const response = await axios.post('https://pixelport-2.onrender.com/api/auth/login', { 
-        email, 
-        password 
+      const response = await axios.post('https://pixelport-2.onrender.com/api/auth/login', {
+        email,
+        password,
       });
       localStorage.setItem('token', response.data.token);
-      window.location.href = '/dashboard';  
+      window.location.href = '/dashboard'; 
     } catch (error) {
-      setIsLoading(false); 
-      if (error.response && error.response.status === 400) {
-        setError('Invalid email or password');
-      } else {
-        setError('Something went wrong. Please try again later.');
-      }
+      console.error('Error response:', error.response?.data); 
+      setError('Invalid email or password');
     }
   };
 
