@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import html2canvas from "html2canvas"; // Import html2canvas
+import html2canvas from "html2canvas";
 import "../CSS/Dashboard.css";
-import PixelPortLogo from '../Img/PixelPort.jpg'; 
+import PixelPortLogo from '../Img/PixelPort.jpg';
 
 function Dashboard() {
   const [coverImage, setCoverImage] = useState(null);
@@ -30,7 +30,7 @@ function Dashboard() {
 
   const handleHeadlineChange = (event) => setHeadline(event.target.value);
   const handleSubheadlineChange = (event) => setSubheadline(event.target.value);
-  const handleAboutMeChange = (event) => setAboutMe(event.target.value); // Handle About Me section input
+  const handleAboutMeChange = (event) => setAboutMe(event.target.value);
 
   const handleSkillsChange = (index, event) => {
     const newSkills = [...skills];
@@ -56,9 +56,8 @@ function Dashboard() {
     setProjects([...projects, { name: "", description: "", files: [] }]);
   };
 
-  // Function to capture and download the Dashboard as an image
   const downloadPortfolioImage = () => {
-    const dashboardElement = document.getElementById("dashboard-content"); // Select the main container
+    const dashboardElement = document.getElementById("dashboard-content");
 
     html2canvas(dashboardElement, { useCORS: true }).then((canvas) => {
       const link = document.createElement("a");
@@ -72,7 +71,7 @@ function Dashboard() {
     <div className="Dash-container">
       <header>
         <div className="logo">
-          <img src={PixelPortLogo} alt="PixelPort Logo" />  
+          <img src={PixelPortLogo} alt="PixelPort Logo" />
           <h3>PixelPort</h3>
         </div>
         <div className="button-actions">
@@ -88,8 +87,7 @@ function Dashboard() {
           </Link>
         </div>
       </header>
-
-      <main id="dashboard-content"> {/* This is the section we capture */}
+      <main id="dashboard-content">
         <div className="cover-section">
           {coverImage ? <img src={coverImage} alt="Cover" /> : <div className="default-cover"></div>}
           <div className="cover-overlay">
@@ -126,11 +124,10 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* About Me Section */}
         <div className="about-me-section">
           <h3>About Me</h3>
           {isPreviewMode ? (
-            <p>{aboutMe}</p> // Show About Me content in preview mode
+            <p>{aboutMe}</p>
           ) : (
             <textarea
               placeholder="Write a brief description about yourself"
@@ -147,14 +144,14 @@ function Dashboard() {
               <div className="skills-column" key={skill.id}>
                 <label htmlFor={`skill-${index}`}>{`Skill ${index + 1}`}</label>
                 {isPreviewMode ? (
-                  <p>{skill.name}</p> // Display skill name in preview mode
+                  <p>{skill.name}</p>
                 ) : (
-                  <input 
-                    type="text" 
-                    id={`skill-${index}`} 
-                    placeholder={`Enter Skill ${index + 1}`} 
-                    value={skill.name} 
-                    onChange={(e) => handleSkillsChange(index, e)} 
+                  <input
+                    type="text"
+                    id={`skill-${index}`}
+                    placeholder={`Enter Skill ${index + 1}`}
+                    value={skill.name}
+                    onChange={(e) => handleSkillsChange(index, e)}
                   />
                 )}
               </div>
@@ -179,17 +176,17 @@ function Dashboard() {
                       </>
                     ) : (
                       <>
-                        <input 
-                          type="text" 
-                          id={`project-name-${index}`} 
-                          placeholder={`Enter Project ${index + 1} Name`} 
-                          value={project.name} 
-                          onChange={(e) => handleProjectNameChange(index, e)} 
+                        <input
+                          type="text"
+                          id={`project-name-${index}`}
+                          placeholder={`Enter Project ${index + 1} Name`}
+                          value={project.name}
+                          onChange={(e) => handleProjectNameChange(index, e)}
                         />
-                        <textarea 
-                          placeholder={`Enter Project ${index + 1} Description`} 
-                          value={project.description} 
-                          onChange={(e) => handleProjectDescriptionChange(index, e)} 
+                        <textarea
+                          placeholder={`Enter Project ${index + 1} Description`}
+                          value={project.description}
+                          onChange={(e) => handleProjectDescriptionChange(index, e)}
                         />
                       </>
                     )}
