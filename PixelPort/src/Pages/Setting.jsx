@@ -7,7 +7,8 @@ function SettingsPage() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [editingName, setEditingName] = useState(false);
+  const [editingFirstName, setEditingFirstName] = useState(false);
+  const [editingLastName, setEditingLastName] = useState(false);
   const [editingEmail, setEditingEmail] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -53,13 +54,14 @@ function SettingsPage() {
   const handleLastNameChange = (event) => setLastName(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
 
-  const toggleNameEditing = () => setEditingName(!editingName);
+  const toggleFirstNameEditing = () => setEditingFirstName(!editingFirstName);
+  const toggleLastNameEditing = () => setEditingLastName(!editingLastName);
   const toggleEmailEditing = () => setEditingEmail(!editingEmail);
 
   const saveChanges = async () => {
     try {
       const response = await axios.put(
-        'http://localhost:5000/api/user',
+        'https://pixelport-2.onrender.com/api/user',  // API URL updated to match the real backend
         { firstName, lastName, email },
         {
           headers: {
@@ -68,7 +70,8 @@ function SettingsPage() {
         }
       );
       console.log('User details updated successfully', response.data);
-      setEditingName(false);
+      setEditingFirstName(false);
+      setEditingLastName(false);
       setEditingEmail(false);
     } catch (error) {
       console.error('Error saving user details:', error.response || error.message);
@@ -102,13 +105,13 @@ function SettingsPage() {
         <div className="info-section">
           <div className="info-label">First Name</div>
           <div className="info-value">
-            {editingName ? (
+            {editingFirstName ? (
               <input type="text" value={firstName} onChange={handleFirstNameChange} />
             ) : (
               <span>{firstName}</span>
             )}
-            <button onClick={toggleNameEditing}>
-              {editingName ? 'Save' : 'Edit'}
+            <button onClick={toggleFirstNameEditing}>
+              {editingFirstName ? 'Save' : 'Edit'}
             </button>
           </div>
         </div>
@@ -116,13 +119,13 @@ function SettingsPage() {
         <div className="info-section">
           <div className="info-label">Last Name</div>
           <div className="info-value">
-            {editingName ? (
+            {editingLastName ? (
               <input type="text" value={lastName} onChange={handleLastNameChange} />
             ) : (
               <span>{lastName}</span>
             )}
-            <button onClick={toggleNameEditing}>
-              {editingName ? 'Save' : 'Edit'}
+            <button onClick={toggleLastNameEditing}>
+              {editingLastName ? 'Save' : 'Edit'}
             </button>
           </div>
         </div>
@@ -141,7 +144,7 @@ function SettingsPage() {
           </div>
         </div>
 
-        {(editingName || editingEmail) && (
+        {(editingFirstName || editingLastName || editingEmail) && (
           <div className="save-changes">
             <button onClick={saveChanges}>Save All Changes</button>
           </div>
